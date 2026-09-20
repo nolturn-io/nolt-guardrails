@@ -20,28 +20,9 @@ First separate the **DESIRED OUTCOME** from the **REQUESTED IMPLEMENTATION**. Im
 
 Do not load implementation-specific guidance, deployment steps, infrastructure patterns, or framework references merely to prepare for building. During premise validation, use one only when it is necessary to determine whether an existing capability already satisfies the outcome.
 
-Use **Minimum Necessary Discovery**: inspect only enough of the project to determine whether the addition is necessary. Check whether state already exists or is derivable, another part of the system owns the behavior, an authoritative mechanism already exists, or the proposal duplicates state, automates unnecessary manual work, or makes a temporary need permanent. If the premise may fail, stop discovery and surface the alternative; do not continue into implementation pattern-matching. Research and reasoning cost are development gravity, so depth scales only after the premise survives.
+Use **Minimum Necessary Discovery**: inspect only enough of the project to determine whether the addition is necessary. Check whether state already exists or is derivable, another part of the system owns the behavior, an authoritative mechanism already exists, or the proposal duplicates state, automates unnecessary manual work, or makes a temporary need permanent. If the premise may fail, stop discovery and surface the alternative; do not continue into implementation pattern-matching. Research and reasoning cost time and attention, so depth scales only after the premise survives.
 
 If the change is unjustified, **stop and wait for a decision** rather than proceeding. Concisely state the outcome, evidence, concern, and reductive alternative, then return control to whoever asked. Until they explicitly choose an option, do not edit or create files, run implementation commands, generate migrations, or otherwise implement either design. The original request, an existing plan, autonomous mode, or the ability to continue is not authorization to cross this boundary. After a decision is made, proceed with that choice unless a hard constraint prevents it. Challenge once; do not re-argue without materially new evidence.
-
-## Organizational Gravity
-
-Organizational Gravity is the accumulated force of systems, processes, approvals, habits, handoffs, fragmented data, technical decisions, and knowledge dependencies that pulls people toward existing or undesirable ways of working.
-
-For meaningful changes, determine whether the design makes the desired behavior easier, clearer, safer, and more automatic. Question friction likely to cause workarounds, duplicate work, or a return to old behavior.
-
-Friction is justified when it provides a real control, including security, safety, financial control, compliance, contractual obligations, data integrity, architectural boundaries, or legitimate human judgment. Preserve necessary controls; remove accidental friction.
-
-Treat these as design smells, not automatic failures:
-
-- a new required field, approval, status, table, screen, manual handoff, or source of truth
-- duplicate data, manual synchronization, or people remembering future actions
-- users entering known information, consulting instructions during routine work, or navigating elsewhere to determine the next action
-- business logic that exists only in training, or permissions used instead of workflow design
-- dashboards without actions or notifications compensating for missing workflow
-- fields kept for hypothetical use or states that drive no behavior
-- exceptions forced through the normal path, or replacement processes that do not retire the old path
-- automation that conceals or reproduces a flawed process faster
 
 ## Process first, tools second
 
@@ -59,7 +40,7 @@ Agents apply this standard silently while planning and implementing meaningful e
 2. whether an existing capability already solves or can derive it
 3. what unnecessary manual work should disappear rather than be automated
 4. what can be removed, consolidated, reused, simplified, or retired
-5. the gravity, behavior-change, source-of-truth, maintenance, and mode implications
+5. the behavior-change, source-of-truth, maintenance, and mode implications
 6. the lowest-complexity safe solution
 
 Use `REDUCES`, `NEUTRAL`, `INCREASES_JUSTIFIED`, or `INCREASES_UNJUSTIFIED` as internal labels when useful. For `REDUCES` and `NEUTRAL`, proceed normally. For `INCREASES_JUSTIFIED`, proceed and briefly surface the tradeoff when useful. For `INCREASES_UNJUSTIFIED`, the Additive Change Gate above is a hard execution boundary: explain once, offer the reductive alternative, stop, and wait for a decision.
@@ -86,7 +67,7 @@ Use when work is explicitly production hardening, release preparation, customer 
 
 These rules govern how to reason about engineering. `docs/PROJECT_CONTEXT.md` and `docs/ARCHITECTURE.md` govern what is actually true about this project: its architecture, domain, schema, APIs, deployment, and real constraints. Apply this philosophy within those facts, not instead of them. Do not overwrite a legitimate project-specific requirement; surface a genuine conflict when it materially affects the work.
 
-## Governance must not create gravity
+## Governance must not add overhead
 
 Every addition to this file's guardrails must justify its ongoing cost. Before adding a process, document, checklist, required field, approval, CI gate, report, or manual review, prefer automation, existing project metadata, existing review practices, or deterministic tooling over a new human step.
 
@@ -96,4 +77,4 @@ Reserve human attention for exceptions, ambiguity, meaningful tradeoffs, risk, a
 
 Scale planning and review to risk. For a meaningful change, briefly identify the outcome, assumptions, affected areas, data/security impact, and implementation approach. Trivial changes need no ceremonial plan. Ask for a decision only when scope or a consequential tradeoff genuinely requires one.
 
-The Additive Change Gate is the primary gravity review and occurs before implementation. Before completion, inspect the actual diff only for unexpected user actions, fields, approvals, statuses, tables, dependencies, integrations, synchronization, training, permissions, behavior changes, sources of truth, or hidden unnecessary manual work. Fix unexpected gravity before declaring completion. Report changed files, verification, and material risks or rollback information — without creating a separate governance artifact to prove it happened.
+The Additive Change Gate is the primary safeguard against unnecessary complexity and occurs before implementation. Before completion, inspect the actual diff only for unexpected user actions, fields, approvals, statuses, tables, dependencies, integrations, synchronization, training, permissions, behavior changes, sources of truth, or hidden unnecessary manual work. Fix anything unexpected before declaring completion. Report changed files, verification, and material risks or rollback information — without creating a separate governance artifact to prove it happened.
