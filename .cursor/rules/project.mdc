@@ -1,0 +1,11 @@
+---
+description: Project operating rules — always applied
+alwaysApply: true
+---
+
+# Project rules
+
+Full instructions: `AGENTS.md`. Guardrails and reasoning: `docs/RULES.md`.
+Project context: `docs/PROJECT_CONTEXT.md`. Current architecture: `docs/ARCHITECTURE.md`.
+
+Read `AGENTS.md` before proposing or making a change.
